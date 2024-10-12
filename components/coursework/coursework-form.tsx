@@ -85,7 +85,7 @@ const CourseworkForm = () => {
       ? [...parsedData, dataToStore]
       : [dataToStore];
     localStorage.setItem("courseworkData", JSON.stringify(dataToUpdate));
-    toast.success("Coursework data stored in local storage");
+    toast.success("Coursework data successfully stored.");
   };
 
   return (
@@ -129,7 +129,7 @@ const CourseworkForm = () => {
                           <p className="font-bold">Drag and drop a PDF</p>
                         )}
                         <p className="text-xs text-center">
-                          *Limit 25MB per file.
+                        <span className="text-red-500">* </span>Limit 25MB per file.
                         </p>
                       </span>
                       <span className=" shadow-md border border-primary rounded-full text-primary bg-transparent  font-bold hover:bg-primary/10 hover:text-accent-foreground p-2 px-4 cursor-pointer">
@@ -143,7 +143,8 @@ const CourseworkForm = () => {
             />
             <div className="flex flex-col gap-2 mt-6">
               <p className="text-sm text-[#7A8196] font-semibold">
-                Select your course & subjects*
+                Select your course & subjects
+                <span className="text-red-500"> *</span>
               </p>
               <span className="flex gap-3">
                 <FormField
@@ -219,7 +220,7 @@ const CourseworkForm = () => {
             </div>
             <div className="flex flex-col gap-2 mt-5">
               <p className="text-sm text-[#7A8196] font-semibold">
-                Enter your essay title*
+                Enter your essay title <span className="text-red-500"> *</span>
               </p>
               <FormField
                 control={form.control}
@@ -235,7 +236,7 @@ const CourseworkForm = () => {
                     >
                       <Input placeholder="How nation works..." {...field} />
                     </FormControl>
-                    <FormMessage className="absolute -bottom-4 left-2" />
+                    <FormMessage className="absolute -bottom-4" />
                   </FormItem>
                 )}
               />
