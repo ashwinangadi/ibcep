@@ -57,7 +57,7 @@ const CourseworkForm = () => {
         }
       }
     },
-    [form]
+    [form],
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -90,7 +90,7 @@ const CourseworkForm = () => {
 
   return (
     <>
-      <div className="bg-[#FCFBFDB8] w-full rounded-3xl mt-5 p-4">
+      <div className="mt-5 w-full rounded-3xl bg-[#FCFBFDB8] p-4">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
@@ -102,22 +102,20 @@ const CourseworkForm = () => {
                   <FormControl
                     className={`${
                       form.formState.errors.file
-                        ? " border border-red-500"
+                        ? "border border-red-500"
                         : null
                     }`}
                   >
                     <div
                       {...getRootProps()}
-                      className="bg-white flex flex-col gap-3 items-center justify-center rounded-xl  w-full border h-52 3xl:h-60 border-dashed "
+                      className="focus-visible:outline-primary flex h-52 w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed bg-white focus-visible:outline-dashed 3xl:h-60"
                     >
                       {field.value ? (
-                        <p className="text-sm text-wrap text-center text-[#7A8196]">
-                          {field.value.name.length > 50
-                            ? field.value.name.substring(0, 50) + "..."
-                            : field.value.name}
+                        <p className="line-clamp-1 w-full text-wrap p-2 text-center text-sm text-[#7A8196]">
+                          {field.value.name}
                         </p>
                       ) : (
-                        <FileUp className="w-10 h-10 text-[#98A1BB]" />
+                        <FileUp className="h-10 w-10 text-[#98A1BB]" />
                       )}
                       <span className="flex flex-col text-[#7A8196]">
                         <Input {...getInputProps()} />
@@ -128,11 +126,12 @@ const CourseworkForm = () => {
                         ) : (
                           <p className="font-bold">Drag and drop a PDF</p>
                         )}
-                        <p className="text-xs text-center">
-                        <span className="text-red-500">* </span>Limit 25MB per file.
+                        <p className="text-center text-xs">
+                          <span className="text-red-500">* </span>Limit 25MB per
+                          file.
                         </p>
                       </span>
-                      <span className=" shadow-md border border-primary rounded-full text-primary bg-transparent  font-bold hover:bg-primary/10 hover:text-accent-foreground p-2 px-4 cursor-pointer">
+                      <span className="border-primary text-primary hover:bg-primary/10 hover:text-accent-foreground cursor-pointer rounded-full border bg-transparent p-2 px-4 font-bold shadow-md">
                         Upload your file
                       </span>
                     </div>
@@ -141,8 +140,8 @@ const CourseworkForm = () => {
                 </FormItem>
               )}
             />
-            <div className="flex flex-col gap-2 mt-6">
-              <p className="text-sm text-[#7A8196] font-semibold">
+            <div className="mt-6 flex flex-col gap-2">
+              <p className="text-sm font-semibold text-[#7A8196]">
                 Select your course & subjects
                 <span className="text-red-500"> *</span>
               </p>
@@ -161,7 +160,7 @@ const CourseworkForm = () => {
                         <FormControl
                           className={`${
                             form.formState.errors.courseworkType
-                              ? " border border-red-500"
+                              ? "border border-red-500"
                               : null
                           }`}
                         >
@@ -171,8 +170,8 @@ const CourseworkForm = () => {
                         </FormControl>
                         <SelectContent>
                           {courseworkTypes.map((type) => (
-                            <SelectItem key={type} value={type}>
-                              {type}
+                            <SelectItem key={type.value} value={type.value}>
+                              {type.label}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -196,7 +195,7 @@ const CourseworkForm = () => {
                         <FormControl
                           className={`${
                             form.formState.errors.subject
-                              ? " border border-red-500"
+                              ? "border border-red-500"
                               : null
                           }`}
                         >
@@ -218,8 +217,8 @@ const CourseworkForm = () => {
                 />
               </span>
             </div>
-            <div className="flex flex-col gap-2 mt-5">
-              <p className="text-sm text-[#7A8196] font-semibold">
+            <div className="mt-5 flex flex-col gap-2">
+              <p className="text-sm font-semibold text-[#7A8196]">
                 Enter your essay title <span className="text-red-500"> *</span>
               </p>
               <FormField
@@ -230,7 +229,7 @@ const CourseworkForm = () => {
                     <FormControl
                       className={`${
                         form.formState.errors.essayTitle
-                          ? " border border-red-500"
+                          ? "border border-red-500"
                           : null
                       }`}
                     >
@@ -247,15 +246,15 @@ const CourseworkForm = () => {
               className={`mt-6 rounded-full px-1 pe-8 text-base font-bold text-white ${
                 !form.formState.isValid
                   ? "bg-[#ADB8C9] hover:bg-[#ADB8C9]"
-                  : "bg-primary "
+                  : "bg-primary"
               }`}
             >
-              <span className="flex items-center bg-white rounded-full p-1 mr-3">
+              <span className="mr-3 flex items-center rounded-full bg-white p-1">
                 <Sparkles
-                  className={`w-4 h-4 ${
+                  className={`h-4 w-4 ${
                     !form.formState.isValid
-                      ? "text-[#ADB8C9] fill-[#ADB8C9]"
-                      : "text-primary fill-primary"
+                      ? "fill-[#ADB8C9] text-[#ADB8C9]"
+                      : "fill-primary text-primary"
                   }`}
                 />
               </span>
