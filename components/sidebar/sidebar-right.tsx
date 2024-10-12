@@ -3,7 +3,7 @@ import React from "react";
 
 const SidebarRight = () => {
   return (
-    <div className="absolute right-0 top-0 hidden md:flex flex-col items-end gap-2 h-[calc(100vh-1rem)] m-2 w-[52px]">
+    <div className="fixed right-0 top-0 hidden md:flex flex-col items-end gap-2 h-[calc(100vh-1rem)] m-2 w-[52px]">
       {/* <div className="pt-2 flex flex-col gap-2 items-center"> */}
       <span className="w-16">
         <Image
