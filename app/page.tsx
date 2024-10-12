@@ -3,6 +3,7 @@ import CourseworkForm from "@/components/coursework/coursework-form";
 import { dummyCourseworkData, tabData } from "@/lib/constants";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { MyCoursework } from "@/components/coursework/my-coursework";
 export default function Home() {
   return (
     <section className="container mx-auto mb-20 w-full px-3 md:max-w-[600px] lg:max-w-[807px] xl:max-w-[900px] 3xl:max-w-[1100px]">
@@ -19,6 +20,11 @@ export default function Home() {
           <Image src="/hero1.png" alt="hero-image" width={300} height={300} />
           <Image src="/hero.png" alt="hero-image" width={300} height={300} />
         </div>
+      </div>
+
+      <div className="mt-8 flex w-full max-w-[900px] flex-col gap-3">
+        <h1 className="text-xl font-bold text-[#5B6170]">My Coursework</h1>
+        <MyCoursework />
       </div>
 
       <div className="mt-8 flex w-full max-w-[900px] flex-col gap-3">

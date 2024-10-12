@@ -22,7 +22,7 @@ const CourseworkCard: React.FC<CourseworkCardProps> = ({
 }) => {
   return (
     <Card
-      className={`flex gap-2 overflow-hidden p-2 hover:shadow-lg ${type === "IA" ? "border-[#E9D8F4] bg-gradient-to-r from-white/20 to-[#E9D8F4]/70" : type === "IO" ? "border-[#D8E3F4] bg-gradient-to-r from-white/20 to-[#D8E3F4]/70" : "border-[#F4EAD8] bg-gradient-to-r from-white/20 to-[#F4EAD8]/70"} `}
+      className={`flex gap-2 overflow-hidden p-2 hover:shadow-lg lg:h-44 ${type === "IA" ? "border-[#E9D8F4] bg-gradient-to-r from-white/20 to-[#E9D8F4]/70" : type === "IO" ? "border-[#D8E3F4] bg-gradient-to-r from-white/20 to-[#D8E3F4]/70" : "border-[#F4EAD8] bg-gradient-to-r from-white/20 to-[#F4EAD8]/70"} `}
     >
       <CardContent className="relative hidden w-1/3 min-w-[120px] rounded-[12px] border bg-white p-1 lg:block">
         <Image
@@ -33,7 +33,7 @@ const CourseworkCard: React.FC<CourseworkCardProps> = ({
           className="rounded-[12px] p-1"
         />
       </CardContent>
-      <CardContent className="flex flex-col p-1 lg:w-2/3">
+      <CardContent className="flex flex-col justify-between p-1 lg:w-2/3">
         <CardTitle className="mb-1 line-clamp-2 text-lg font-extrabold">
           {title}
         </CardTitle>

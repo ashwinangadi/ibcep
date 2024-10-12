@@ -24,10 +24,12 @@ import { FileUp, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { courseworkTypes, subjects } from "@/lib/constants";
 import { formSchema } from "@/lib/zod";
+import { MyCourseworkStore } from "@/store/my-coursework-store";
 
 type FormValues = z.infer<typeof formSchema>;
 
 const CourseworkForm = () => {
+  const { addMyCoursework } = MyCourseworkStore();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -67,25 +69,19 @@ const CourseworkForm = () => {
     multiple: false,
   });
 
-  const onSubmit = (data: FormValues) => {
-    const storedData = localStorage.getItem("courseworkData");
-    const parsedData = storedData ? JSON.parse(storedData) : null;
+  const onSubmit = async (data: FormValues) => {
     const dataToStore = {
       id: crypto.randomUUID(),
       ...data,
-      file: data.file
-        ? {
-            name: data.file.name,
-            size: data.file.size,
-            preview: URL.createObjectURL(data.file),
-          }
-        : null,
+      file: data.file && {
+        name: data.file.name,
+        size: data.file.size,
+        preview: URL.createObjectURL(data.file),
+      },
     };
-    const dataToUpdate = parsedData
-      ? [...parsedData, dataToStore]
-      : [dataToStore];
-    localStorage.setItem("courseworkData", JSON.stringify(dataToUpdate));
-    toast.success("Coursework data successfully stored.");
+    addMyCoursework(dataToStore);
+    form.reset();
+    toast.success("Coursework successfully added.");
   };
 
   return (
@@ -248,6 +244,7 @@ const CourseworkForm = () => {
                   ? "bg-[#ADB8C9] hover:bg-[#ADB8C9]"
                   : "bg-primary"
               }`}
+              // onClick={() => form.formState.isSubmitSuccessful && form.reset()}
             >
               <span className="mr-3 flex items-center rounded-full bg-white p-1">
                 <Sparkles
