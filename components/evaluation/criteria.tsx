@@ -14,8 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChartContainer } from "@/components/ui/chart";
-import { CheckCircle2, AlertCircle, ChevronDown, ChevronRight, MoveRight } from "lucide-react";
+import { CheckCircle2, AlertCircle, MoveRight } from "lucide-react";
 import { criteriaData } from "@/lib/constants";
 import { Separator } from "@radix-ui/react-separator";
 import CriteriaChart from "./criteria-chart";
@@ -111,7 +110,10 @@ export default function Criteria() {
           </AccordionItem>
         ))}
       </Accordion>
-      <Button variant="outline" className="mt-3.5 w-2/3 border-none text-base shadow-md font-extrabold bg-white">
+      <Button
+        variant="outline"
+        className="mt-3.5 hidden w-2/3 border-none bg-white text-base font-extrabold shadow-md lg:flex"
+      >
         Check detail Evaluation
         <MoveRight className="ml-5 h-4 w-4" />
       </Button>

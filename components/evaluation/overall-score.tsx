@@ -1,5 +1,4 @@
 import React from "react";
-import { TrendingUp } from "lucide-react";
 import {
   Label,
   PolarGrid,
@@ -42,7 +41,7 @@ const OverallScore = () => {
   } satisfies ChartConfig;
 
   return (
-    <Card className="flex w-full items-center justify-between py-3">
+    <Card className="flex w-full items-center justify-between py-3 mb-3.5 mt-3.5 lg:mt-0">
       <CardHeader className="my-auto px-3 md:px-6 items-start py-0">
         <p className="text-sm font-semibold text-[#3D404B]">Overall Score</p>
         <CardTitle className="font-extrabold text-[#3D404B] lg:text-lg xl:text-xl 2xl:text-2xl">
