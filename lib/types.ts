@@ -9,4 +9,5 @@ export interface CourseworkCardProps {
   type: string;
   description: string;
   image: string;
+  isExample?: boolean;
 }

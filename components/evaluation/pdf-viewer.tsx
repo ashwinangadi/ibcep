@@ -34,7 +34,7 @@ const PDFViewer = ({
     <div className="rounded-lg bg-white/50">
       <div className="flex flex-col items-start justify-between gap-3 p-2 lg:flex-row">
         <h1 className="rounded-full bg-white px-4 py-1 text-sm font-bold xl:text-nowrap leading-[normal] text-[#3D404B] md:hidden lg:block">
-          {pdfName.substring(0, 50)}
+          {pdfName.substring(0, 20)+"..."}
         </h1>
         <div className="flex w-full items-center justify-between gap-2 lg:justify-end">
           <span className="flex items-center gap-2">

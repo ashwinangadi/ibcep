@@ -21,6 +21,7 @@ const CourseworkCard: React.FC<CourseworkCardProps> = ({
   type,
   description,
   image,
+  isExample,
 }) => {
   return (
     <Card
@@ -28,7 +29,7 @@ const CourseworkCard: React.FC<CourseworkCardProps> = ({
     >
       <CardContent className="relative hidden w-1/3 min-w-[120px] overflow-hidden rounded-[12px] border bg-white p-0 lg:block">
         <iframe
-          src={image || "/courseThumb.png"}
+          src={!isExample ? image : "/samplePDF.pdf"}
           width="100%"
           height="100%"
           className="rounded-[12px] border-none"

@@ -38,6 +38,7 @@ export function MyCoursework() {
                   readTime={15}
                   wordCount={2576}
                   rating={4.5}
+                  isExample={false}
                   language="English"
                   description="This is a sample description for the coursework. It provides a brief overview of the essay content and main points discussed."
                 />
