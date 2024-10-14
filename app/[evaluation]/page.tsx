@@ -107,8 +107,8 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
         <div
           className={` ${
             isExpanded
-              ? "lg:col-span-6 xl:col-span-7 2xl:col-span-8"
-              : "lg:col-span-7 xl:col-span-8 2xl:col-span-9"
+              ? "lg:col-span-6 xl:col-span-6 2xl:col-span-7"
+              : "lg:col-span-7 xl:col-span-7 2xl:col-span-8"
           }`}
         >
           <PDFViewer
@@ -119,8 +119,8 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
         <div
           className={`space-y-2  ${
             isExpanded
-              ? "lg:col-span-6 xl:col-span-5 2xl:col-span-4"
-              : "lg:col-span-5 xl:col-span-4 2xl:col-span-3"
+              ? "lg:col-span-6 xl:col-span-6 2xl:col-span-5"
+              : "lg:col-span-5 xl:col-span-5 2xl:col-span-4"
           } `}
         >
           <span className="hidden lg:block">
