@@ -28,18 +28,25 @@ const PDFViewer = ({
   const fullScreenPluginInstance = fullScreenPlugin();
   const { EnterFullScreenButton } = fullScreenPluginInstance;
   return (
-    <div>
-      <h1 className="text-2xl font-bricolage font-medium leading-[normal] text-[#181e22]">
-        {pdfName}
-      </h1>
-      <div className="flex items-center gap-3 bg-white/50">
-        <ZoomOutButton />
-        <CurrentScale />
-        <ZoomInButton />
-        <EnterFullScreenButton />
+    <div className="rounded-lg bg-white/50">
+      <div className="flex flex-col items-start justify-between gap-3 p-2 lg:flex-row">
+        <h1 className="line-clamp-1 rounded-full bg-white px-4 py-1 text-sm font-bold leading-[normal] text-[#3D404B]">
+          {pdfName}
+        </h1>
+        <div className="flex w-full items-center justify-between lg:justify-end gap-2">
+          <span className="flex items-center gap-2">
+            <ZoomOutButton />
+            <CurrentScale />
+            <ZoomInButton />
+            <EnterFullScreenButton />
+          </span>
+          <span className="flex items-center justify-center rounded-full bg-white px-4 py-1 text-xs font-bold">
+            Expand
+          </span>
+        </div>
       </div>
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-        <div className="h-[500px] w-full">
+        <div className="h-[calc(100vh-200px)] w-full">
           <Viewer
             fileUrl={PDFfile}
             plugins={[zoomPluginInstance, fullScreenPluginInstance]}
