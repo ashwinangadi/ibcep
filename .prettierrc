@@ -1,0 +1,6 @@
+{
+  "tailwindAttributes": ["className", "cn", "clsx"],
+  "tailwindPreserveWhitespace": false,
+  "tailwindPreserveDuplicates": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
