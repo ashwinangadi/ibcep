@@ -34,7 +34,7 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
   return (
     // <section className="container mx-auto mb-20 w-full px-3 md:max-w-[600px] lg:max-w-[807px] xl:max-w-[900px] 3xl:max-w-[1100px]">
     <section className="container mx-auto mb-20 w-full px-1 lg:px-3">
-      <div className={`mt-[92px] gap-6 lg:hidden`}>
+      <div className={`mt-[90px] gap-6 lg:hidden`}>
         <div className="md:mx-[60px] md:mt-[40px]">
           <Accordion
             type="single"
@@ -103,7 +103,7 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
         </div>
       </div>
 
-      <div className="mt-[92px] hidden gap-6 md:mx-[60px] md:mt-[40px] lg:grid lg:grid-cols-12 2xl:mt-[120px] 3xl:mt-[180px]">
+      <div className="mt-[90px] hidden gap-6 md:mx-[60px] md:mt-[40px] lg:mt-[60px] lg:grid lg:grid-cols-12 2xl:mt-[80px] ">
         <div
           className={` ${
             isExpanded

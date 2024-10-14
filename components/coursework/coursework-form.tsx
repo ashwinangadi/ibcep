@@ -25,6 +25,7 @@ import { toast } from "sonner";
 import { courseworkTypes, subjects } from "@/lib/constants";
 import { formSchema } from "@/lib/zod";
 import { MyCourseworkStore } from "@/store/my-coursework-store";
+import { v4 as uuidv4 } from 'uuid';
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -83,7 +84,7 @@ const CourseworkForm = () => {
     const preview = URL.createObjectURL(data.file);
 
     const dataToStore = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       ...data,
       file: data.file && {
         name: data.file.name,

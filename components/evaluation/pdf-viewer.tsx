@@ -61,7 +61,7 @@ const PDFViewer = ({
         </div>
       </div>
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-        <div className="h-[calc(100vh-200px)] w-full">
+        <div className=" h-[650px] w-full">
           <Viewer
             fileUrl={PDFfile}
             plugins={[zoomPluginInstance, fullScreenPluginInstance]}
