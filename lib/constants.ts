@@ -76,3 +76,51 @@ export const dummyCourseworkData = [
     image: "https://example.com/images/tok_ethics.jpg",
   },
 ];
+
+export const criteriaData = [
+  {
+    id: "Criteria A",
+    title: " Understanding Knowledge Questions",
+    score: 9,
+    description:
+      "The essay identifies and focuses on the knowledge question regarding the resolvability of disputes over knowledge claims within disciplines.",
+    strengths: [
+      "Demonstrates a good understanding of the prescribed title and the associated knowledge questions.",
+      "Addresses the nature of disputes in both the Natural Sciences and Human Sciences effectively.",
+    ],
+    improvements: [
+      "Could provide more specific examples to support the arguments.",
+      "Might benefit from a deeper analysis of the implications of these disputes.",
+    ],
+  },
+  {
+    id: "Criteria B",
+    title: "Understanding Knowledge Questions",
+    score: 5,
+    description:
+      "The essay shows a partial understanding of the knowledge questions related to the prescribed title.",
+    strengths: [
+      "Identifies some relevant knowledge questions.",
+      "Attempts to discuss disputes in different areas of knowledge.",
+    ],
+    improvements: [
+      "Needs to develop a more comprehensive understanding of the knowledge questions.",
+      "Should provide a more balanced analysis of disputes across different disciplines.",
+    ],
+  },
+  {
+    id: "Criteria C",
+    title: "Understanding Knowledge Questions",
+    score: 3,
+    description:
+      "The essay demonstrates a limited grasp of the knowledge questions associated with the prescribed title.",
+    strengths: [
+      "Recognizes that there are knowledge questions to be addressed.",
+      "Makes some attempt to discuss disputes in knowledge claims.",
+    ],
+    improvements: [
+      "Requires a much clearer focus on relevant knowledge questions.",
+      "Needs to significantly improve the depth of analysis regarding disputes in different disciplines.",
+    ],
+  },
+];
