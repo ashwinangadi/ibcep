@@ -1,9 +1,9 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { FileRejection, useDropzone } from "react-dropzone";
+import { useDropzone } from "react-dropzone";
 import {
   Form,
   FormField,
@@ -29,6 +29,7 @@ import { MyCourseworkStore } from "@/store/my-coursework-store";
 type FormValues = z.infer<typeof formSchema>;
 
 const CourseworkForm = () => {
+  const [base64String, setBase64String] = useState("");
   const { addMyCoursework } = MyCourseworkStore();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -41,10 +42,27 @@ const CourseworkForm = () => {
   });
 
   const onDrop = useCallback(
-    (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
-      if (acceptedFiles[0]) {
-        form.setValue("file", acceptedFiles[0], { shouldValidate: true });
-      } else if (rejectedFiles.length > 0) {
+    (acceptedFiles: File[]) => {
+      acceptedFiles.forEach((file) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const base64String = reader.result;
+          setBase64String(base64String as string);
+          form.setValue("file", file, { shouldValidate: true });
+        };
+        reader.readAsDataURL(file);
+      });
+    },
+    [form],
+  );
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { "application/pdf": [".pdf"] },
+    maxSize: 25 * 1024 * 1024,
+    multiple: false,
+    onDropRejected: (rejectedFiles) => {
+      if (rejectedFiles.length > 0) {
         const error = rejectedFiles[0].errors[0];
         if (error.code === "file-too-large") {
           form.setError("file", {
@@ -59,26 +77,23 @@ const CourseworkForm = () => {
         }
       }
     },
-    [form],
-  );
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: { "application/pdf": [".pdf"] },
-    maxSize: 25 * 1024 * 1024,
-    multiple: false,
   });
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = (data: FormValues) => {
+    const preview = URL.createObjectURL(data.file);
+
     const dataToStore = {
       id: crypto.randomUUID(),
       ...data,
       file: data.file && {
         name: data.file.name,
         size: data.file.size,
-        preview: URL.createObjectURL(data.file),
+        type: data.file.type,
+        data: base64String,
       },
+      preview,
     };
+
     addMyCoursework(dataToStore);
     form.reset();
     toast.success("Coursework successfully added.");
@@ -94,7 +109,6 @@ const CourseworkForm = () => {
               name="file"
               render={({ field }) => (
                 <FormItem className="relative">
-                  {/* <FormLabel>Upload your file</FormLabel> */}
                   <FormControl
                     className={`${
                       form.formState.errors.file
@@ -104,7 +118,7 @@ const CourseworkForm = () => {
                   >
                     <div
                       {...getRootProps()}
-                      className="focus-visible:outline-primary flex h-52 w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed bg-white focus-visible:outline-dashed 3xl:h-60"
+                      className="flex h-52 w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed bg-white focus-visible:outline-dashed focus-visible:outline-primary 3xl:h-60"
                     >
                       {field.value ? (
                         <p className="line-clamp-1 w-full text-wrap p-2 text-center text-sm text-[#7A8196]">
@@ -127,7 +141,7 @@ const CourseworkForm = () => {
                           file.
                         </p>
                       </span>
-                      <span className="border-primary text-primary hover:bg-primary/10 hover:text-accent-foreground cursor-pointer rounded-full border bg-transparent p-2 px-4 font-bold shadow-md">
+                      <span className="cursor-pointer rounded-full border border-primary bg-transparent p-2 px-4 font-bold text-primary shadow-md hover:bg-primary/10 hover:text-accent-foreground">
                         Upload your file
                       </span>
                     </div>
@@ -147,7 +161,6 @@ const CourseworkForm = () => {
                   name="courseworkType"
                   render={({ field }) => (
                     <FormItem className="relative w-40">
-                      {/* <FormLabel>Coursework Type</FormLabel> */}
                       <Select
                         key={field.value || "default"}
                         onValueChange={field.onChange}
@@ -182,7 +195,6 @@ const CourseworkForm = () => {
                   name="subject"
                   render={({ field }) => (
                     <FormItem className="relative w-28">
-                      {/* <FormLabel>Subject</FormLabel> */}
                       <Select
                         key={field.value || "default"}
                         onValueChange={field.onChange}
@@ -244,7 +256,6 @@ const CourseworkForm = () => {
                   ? "bg-[#ADB8C9] hover:bg-[#ADB8C9]"
                   : "bg-primary"
               }`}
-              // onClick={() => form.formState.isSubmitSuccessful && form.reset()}
             >
               <span className="mr-3 flex items-center rounded-full bg-white p-1">
                 <Sparkles

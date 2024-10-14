@@ -1,4 +1,5 @@
 export interface CourseworkCardProps {
+  id: string;
   title: string;
   subject: string;
   readTime: number;

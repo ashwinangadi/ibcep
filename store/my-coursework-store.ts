@@ -4,7 +4,8 @@ import { persist } from "zustand/middleware";
 interface File {
   name: string;
   size: number;
-  preview: string;
+  type: string;
+  data: string;
 }
 
 interface Coursework {
@@ -13,6 +14,7 @@ interface Coursework {
   courseworkType: string;
   subject: string;
   essayTitle: string;
+  preview: string;
 }
 
 interface MyCourseworkState {

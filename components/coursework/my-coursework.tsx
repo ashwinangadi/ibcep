@@ -30,10 +30,11 @@ export function MyCoursework() {
                 }`}
               >
                 <CourseworkCard
+                  id={item.id}
                   title={item.essayTitle}
                   subject={item.subject}
                   type={item.courseworkType}
-                  image={item.file?.preview}
+                  image={item.file.data}
                   readTime={15}
                   wordCount={2576}
                   rating={4.5}

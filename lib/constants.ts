@@ -10,7 +10,7 @@ export const subjects = ["Maths", "Physics", "Chemistry", "Biology"];
 
 export const dummyCourseworkData = [
   {
-    id: 1,
+    id: "1",
     title:
       "How does the temperature of a Copper pipe affect the time it takes a magnet to fall through it?",
     subject: "Physics HL",
@@ -24,7 +24,7 @@ export const dummyCourseworkData = [
     image: "https://example.com/images/physics_magnet.jpg",
   },
   {
-    id: 2,
+    id: "2",
     title: "The Role of Enzymes in Cellular Respiration",
     subject: "Biology HL",
     readTime: 22,
@@ -37,7 +37,7 @@ export const dummyCourseworkData = [
     image: "https://example.com/images/biology_enzymes.jpg",
   },
   {
-    id: 3,
+    id: "3",
     title: "Analysis of Organic Compounds in Everyday Products",
     subject: "Chemistry SL",
     readTime: 15,
@@ -50,7 +50,7 @@ export const dummyCourseworkData = [
     image: "https://example.com/images/chemistry_organic.jpg",
   },
   {
-    id: 4,
+    id: "4",
     title: "The Impact of AI on Modern Mathematics",
     subject: "Maths AA HL",
     readTime: 20,
@@ -63,7 +63,7 @@ export const dummyCourseworkData = [
     image: "https://example.com/images/maths_ai.jpg",
   },
   {
-    id: 5,
+    id: "5",
     title: "Ethical Implications of Genetic Engineering",
     subject: "TOK",
     readTime: 25,
