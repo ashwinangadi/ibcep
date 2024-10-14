@@ -16,11 +16,9 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CheckCircle2, AlertCircle } from "lucide-react";
 import { useExpandPdfViewerStore } from "@/store/expand-pdfViewer-store";
 
 const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
