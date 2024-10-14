@@ -59,7 +59,7 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
       {noFileFound ? (
         <div className="mt-[90px] text-center">
           <h2 className="text-2xl font-bold">File Not Found</h2>
-          <p>Sorry, we couldn't find the evaluation you're looking for.</p>
+          <p>Sorry, we couldn&apos;t find the evaluation you&apos;re looking for.</p>
           <Link href="/" className="text-blue-500 hover:underline ">
             Add Coursework!
           </Link>
