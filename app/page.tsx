@@ -7,7 +7,7 @@ import { MyCoursework } from "@/components/coursework/my-coursework";
 export default function Home() {
   return (
     <section className="container mx-auto mb-20 w-full px-3 md:max-w-[600px] lg:max-w-[807px] xl:max-w-[900px] 3xl:max-w-[1100px]">
-      <div className="mt-[92px] grid grid-cols-12 gap-3 md:mt-[40px] 2xl:mt-[120px] 3xl:mt-[180px]">
+      <div className="mt-[92px] grid grid-cols-12 gap-3 md:mt-[40px] 2xl:mt-[100px] ">
         <div className="col-span-12 h-full lg:col-span-7 xl:col-span-8">
           <h1 className="text-2xl font-bold lg:text-[1.75rem] 3xl:text-[2rem]">
             Hey IB Folks! Unsure about the quality of your answers?
