@@ -92,5 +92,5 @@ You can start editing the page by modifying `app/page.tsx`.
 ## Challenges Faced
 -	Handling storage limitations and providing appropriate feedback to the user.
 -	Choosing a suitable PDF viewer for the project
--	Ensure persistence of data across page reloads
+-	Ensured persistence of data across page reloads by serializing the data and storing it as string in local storage.
 
