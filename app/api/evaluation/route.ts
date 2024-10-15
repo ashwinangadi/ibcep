@@ -6,8 +6,6 @@ export async function POST(request: NextRequest) {
   try {
     const { subject } = await request.json();
 
-    console.log("subject", subject);
-
     if (!subject) {
       return NextResponse.json(
         { error: "Subject is required" },

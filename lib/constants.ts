@@ -81,7 +81,7 @@ export const criteriaData = [
   {
     id: "Criteria A",
     title: " Understanding Knowledge Questions",
-    score: 9,
+    score: 10,
     description:
       "The essay identifies and focuses on the knowledge question regarding the resolvability of disputes over knowledge claims within disciplines.",
     strengths: [
@@ -96,7 +96,7 @@ export const criteriaData = [
   {
     id: "Criteria B",
     title: "Understanding Knowledge Questions",
-    score: 5,
+    score: 9,
     description:
       "The essay shows a partial understanding of the knowledge questions related to the prescribed title.",
     strengths: [
@@ -111,7 +111,7 @@ export const criteriaData = [
   {
     id: "Criteria C",
     title: "Understanding Knowledge Questions",
-    score: 3,
+    score: 8,
     description:
       "The essay demonstrates a limited grasp of the knowledge questions associated with the prescribed title.",
     strengths: [
@@ -144,7 +144,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria B",
       title: "Problem-Solving Techniques",
-      score: 6,
+      score: 9,
       description: "Assesses the application of problem-solving strategies and creativity in approach.",
       strengths: [
         "Demonstrates a variety of problem-solving techniques",
@@ -158,7 +158,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria C",
       title: "Use of Technology",
-      score: 8,
+      score: 9,
       description: "Evaluates the appropriate and effective use of technology in mathematical exploration.",
       strengths: [
         "Skillful use of graphing calculators for visualization",
@@ -174,7 +174,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria A",
       title: "Experimental Design",
-      score: 9,
+      score: 8,
       description: "Assesses the quality and appropriateness of the experimental design.",
       strengths: [
         "Well-designed experiment with clear control of variables",
@@ -188,7 +188,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria B",
       title: "Data Analysis and Interpretation",
-      score: 3,
+      score: 7,
       description: "Evaluates the depth and accuracy of data analysis and interpretation.",
       strengths: [
         "Thorough analysis of collected data",
@@ -202,7 +202,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria C",
       title: "Conceptual Understanding",
-      score: 5,
+      score: 6,
       description: "Assesses the depth of understanding and application of physics concepts.",
       strengths: [
         "Demonstrates a strong grasp of fundamental physics principles",
@@ -218,7 +218,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria A",
       title: "Laboratory Techniques",
-      score: 1,
+      score: 2,
       description: "Evaluates the proficiency in carrying out chemical procedures and techniques.",
       strengths: [
         "Demonstrates skilled handling of laboratory equipment",
@@ -232,7 +232,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria B",
       title: "Data Analysis and Evaluation",
-      score: 9,
+      score: 3,
       description: "Assesses the quality of data analysis and critical evaluation of results.",
       strengths: [
         "Thorough analysis of chemical reactions and processes",
@@ -246,7 +246,7 @@ export const dummyCriteriaData = {
     {
       id: "Criteria C",
       title: "Conceptual Understanding and Application",
-      score: 6,
+      score: 1,
       description: "Evaluates the depth of chemical knowledge and its application to the investigation.",
       strengths: [
         "Demonstrates a strong grasp of fundamental chemical concepts",

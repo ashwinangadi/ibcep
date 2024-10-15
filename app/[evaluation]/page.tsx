@@ -21,7 +21,7 @@ import { criteriaData } from "@/lib/constants";
 const dummyFile = {
   id: "1",
   file: {
-    name: "Ashwin_Angadi_Frontend_Engineer.pdf",
+    name: "Ashwin Angadi Frontend Engineer.pdf",
     size: 300,
     type: "application/pdf",
     data: "/samplePDF.pdf",
@@ -42,11 +42,6 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
   const { myCourseworkData } = MyCourseworkStore();
   const { isExpanded, setIsExpanded } = useExpandPdfViewerStore();
 
-  // const evaluationData = myCourseworkData.find(
-  //   (item) => item.id === evaluationSlug,
-  // );
-
-  // Determine which file to use based on the evaluationSlug
   const fileToUse = (() => {
     if (evaluationSlug === "1") {
       return dummyFile;
@@ -56,7 +51,6 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
   })();
 
   return (
-    // <section className="container mx-auto mb-20 w-full px-3 md:max-w-[600px] lg:max-w-[807px] xl:max-w-[900px] 3xl:max-w-[1100px]">
     <section className="container mx-auto mb-20 w-full px-1 lg:px-3">
       {!fileToUse ? (
         <div className="mt-[90px] text-center">
