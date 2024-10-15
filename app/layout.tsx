@@ -37,7 +37,7 @@ export default function RootLayout({
         <SidebarRight />
         <Toaster
           richColors
-          expand={false}
+          expand={true}
           position="bottom-center"
           closeButton
           theme="light"

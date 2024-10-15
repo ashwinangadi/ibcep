@@ -25,13 +25,15 @@ import { courseworkTypes, dummyCriteriaData, subjects } from "@/lib/constants";
 import { formSchema } from "@/lib/zod";
 import { MyCourseworkStore } from "@/store/my-coursework-store";
 import { v4 as uuidv4 } from "uuid";
-import { CriteriaData } from "@/lib/types";
+import axios from "axios";
+import { toast } from "sonner";
 
 type FormValues = z.infer<typeof formSchema>;
 
 const CourseworkForm = () => {
   const [base64String, setBase64String] = useState("");
   const { addMyCoursework } = MyCourseworkStore();
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -82,29 +84,36 @@ const CourseworkForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     const preview = URL.createObjectURL(data.file);
+    try {
+      const response = await axios.post("/api/evaluation", {
+        subject: data.subject.toLowerCase(),
+      });
 
-    const evaluationData = (dummyCriteriaData as CriteriaData)[
-      data.subject.toLowerCase()
-    ];
+      const dataToStore = {
+        id: uuidv4(),
+        ...data,
+        file: data.file && {
+          name: data.file.name,
+          size: data.file.size,
+          type: data.file.type,
+          data: base64String,
+        },
+        preview,
+        evaluationData: {
+          date: new Date().toISOString(),
+          data: response.data.data,
+        },
+      };
 
-    const dataToStore = {
-      id: uuidv4(),
-      ...data,
-      file: data.file && {
-        name: data.file.name,
-        size: data.file.size,
-        type: data.file.type,
-        data: base64String,
-      },
-      preview,
-      evaluationData: {
-        date: new Date().toISOString(),
-        data: evaluationData,
-      },
-    };
-
-    addMyCoursework(dataToStore);
-    form.reset();
+      addMyCoursework(dataToStore);
+      form.reset();
+    } catch (error: any) {
+      console.error("Error fetching evaluation data:", error);
+      toast.error("Error fetching evaluation data", {
+        description: error.message,
+      });
+      return;
+    }
   };
 
   return (
@@ -145,7 +154,8 @@ const CourseworkForm = () => {
                           <p className="font-bold">Drag and drop a PDF</p>
                         )}
                         <p className="text-center text-xs">
-                          <span className="text-red-500">* </span>Limit 25MB per file.
+                          <span className="text-red-500">* </span>Limit 25MB per
+                          file.
                         </p>
                       </span>
                       <span className="cursor-pointer rounded-full border border-primary bg-transparent p-2 px-4 font-bold text-primary shadow-md hover:bg-primary/10 hover:text-accent-foreground">
@@ -258,8 +268,8 @@ const CourseworkForm = () => {
 
             <Button
               type="submit"
-              className={`mt-6 rounded-full px-1 pe-8 text-base font-bold text-white ${
-                !form.formState.isValid
+              className={`mt-6 w-2/4 rounded-full px-1 pe-8 text-base font-bold text-white ${
+                !form.formState.isValid || form.formState.isSubmitting
                   ? "bg-[#ADB8C9] hover:bg-[#ADB8C9]"
                   : "bg-primary"
               }`}
@@ -267,13 +277,15 @@ const CourseworkForm = () => {
               <span className="mr-3 flex items-center rounded-full bg-white p-1">
                 <Sparkles
                   className={`h-4 w-4 ${
-                    !form.formState.isValid
+                    !form.formState.isValid || form.formState.isSubmitting
                       ? "fill-[#ADB8C9] text-[#ADB8C9]"
                       : "fill-primary text-primary"
-                  }`}
+                  } ${form.formState.isSubmitting ? "animate-spin" : null}`}
                 />
               </span>
-              Evaluate your Score
+              {form.formState.isSubmitting
+                ? "Evaluating your Score..."
+                : "Evaluate your Score"}
             </Button>
           </form>
         </Form>

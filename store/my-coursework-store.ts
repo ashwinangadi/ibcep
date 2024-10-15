@@ -42,9 +42,9 @@ export const MyCourseworkStore = create<MyCourseworkState>()(
             toast.error(
               `Local storage limited to 5MB. Please add file less than 5MB or remove some coursework before adding more.`,
             );
-            return state; 
+            return state;
           }
-          toast.success("Coursework successfully added.");
+          toast.success("Evaluated successfully and stored in local storage.");
           return { myCourseworkData: newCourseworkData };
         });
       },

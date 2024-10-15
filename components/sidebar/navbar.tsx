@@ -1,12 +1,21 @@
 import { AlignJustify } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
   return (
-    <section className="fixed w-full z-50 top-0 left-0 right-0 flex items-center justify-between h-[60px] bg-white md:hidden">
-      <Image src="/logo.png" alt="logo" width={60} height={30} className="m-3" />
-      <AlignJustify className="w-6 h-6 me-3" />
+    <section className="fixed left-0 right-0 top-0 z-50 flex h-[60px] w-full items-center justify-between bg-white md:hidden">
+      <Link href="/">
+        <Image
+          src="/logo.png"
+          alt="logo"
+          width={60}
+          height={30}
+          className="m-3"
+        />
+      </Link>
+      <AlignJustify className="me-3 h-6 w-6" />
     </section>
   );
 };
