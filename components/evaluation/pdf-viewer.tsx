@@ -12,6 +12,7 @@ import { fullScreenPlugin } from "@react-pdf-viewer/full-screen";
 import { zoomPlugin } from "@react-pdf-viewer/zoom";
 import { Maximize2, Minimize2 } from "lucide-react";
 import { useExpandPdfViewerStore } from "@/store/expand-pdfViewer-store";
+import { Button } from "../ui/button";
 
 const Viewer = dynamic(
   () => import("@react-pdf-viewer/core").then((mod) => mod.Viewer),
@@ -33,8 +34,8 @@ const PDFViewer = ({
   return (
     <div className="rounded-lg bg-white/50">
       <div className="flex flex-col items-start justify-between gap-3 p-2 lg:flex-row">
-        <h1 className="rounded-full bg-white px-4 py-1 text-sm font-bold xl:text-nowrap leading-[normal] text-[#3D404B] md:hidden lg:block">
-          {pdfName.substring(0, 20)+"..."}
+        <h1 className="rounded-full bg-white px-4 py-1 text-sm font-bold leading-[normal] text-[#3D404B] md:hidden lg:block xl:text-nowrap">
+          {pdfName.length > 30 ? pdfName.substring(0, 30) + "..." : pdfName}
         </h1>
         <div className="flex w-full items-center justify-between gap-2 lg:justify-end">
           <span className="flex items-center gap-2">
@@ -43,8 +44,9 @@ const PDFViewer = ({
             <ZoomInButton />
             <EnterFullScreenButton />
           </span>
-          <div
-            className="hidden items-center justify-center rounded-full bg-white px-4 py-1 text-xs font-bold md:flex"
+          <Button
+            variant="outline"
+            className="hidden items-center justify-center rounded-full h-8 bg-white px-4 py-1 text-xs font-bold md:flex"
             onClick={() => setIsExpanded(!isExpanded)}
           >
             {isExpanded ? (
@@ -57,11 +59,11 @@ const PDFViewer = ({
                 <Maximize2 className="h-3 w-3" /> Expand
               </span>
             )}
-          </div>
+          </Button>
         </div>
       </div>
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-        <div className=" h-[650px] w-full">
+        <div className="h-[650px] w-full">
           <Viewer
             fileUrl={PDFfile}
             plugins={[zoomPluginInstance, fullScreenPluginInstance]}

@@ -16,7 +16,7 @@ export const dummyCourseworkData = [
     subject: "Physics HL",
     readTime: 18,
     wordCount: 2388,
-    rating: 7,
+    rating: 5,
     language: "English",
     type: "IA",
     description:
@@ -55,7 +55,7 @@ export const dummyCourseworkData = [
     subject: "Maths AA HL",
     readTime: 20,
     wordCount: 2542,
-    rating: 6,
+    rating: 8,
     language: "French",
     type: "IO",
     description:
@@ -68,7 +68,7 @@ export const dummyCourseworkData = [
     subject: "TOK",
     readTime: 25,
     wordCount: 3012,
-    rating: 7,
+    rating: 9,
     language: "English",
     type: "TOK",
     description:

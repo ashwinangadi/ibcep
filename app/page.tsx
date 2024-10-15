@@ -51,7 +51,7 @@ export default function Home() {
                   item.value !== "all" ? c1.type === item.value : true,
                 )
                 .map((c2) => (
-                  <CourseworkCard key={c2.id} {...c2} isExample={true} />
+                  <CourseworkCard key={c2.rating} {...c2} isExample={true} />
                 ))}
             </TabsContent>
           ))}
