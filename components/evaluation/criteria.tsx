@@ -15,12 +15,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CheckCircle2, AlertCircle, MoveRight } from "lucide-react";
-import { criteriaData } from "@/lib/constants";
 import { Separator } from "@radix-ui/react-separator";
 import CriteriaChart from "./criteria-chart";
 import { Button } from "@/components/ui/button";
+import { SubjectCriteria } from "@/lib/types";
 
-export default function Criteria() {
+export default function Criteria({ evalData }: { evalData: SubjectCriteria }) {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
   const toggleItem = (itemId: string) => {
@@ -39,7 +39,7 @@ export default function Criteria() {
         value={expandedItems}
         onValueChange={setExpandedItems}
       >
-        {criteriaData.map((criteria) => (
+        {evalData.map((criteria) => (
           <AccordionItem
             key={criteria.id}
             value={criteria.id}

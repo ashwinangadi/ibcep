@@ -14,9 +14,29 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import { SubjectCriteria } from "@/lib/types";
 
-const OverallScore = () => {
-  const score = 17;
+const OverallScore = ({
+  evalData,
+}: {
+  evalData: {
+    date: string;
+    data: SubjectCriteria;
+  };
+}) => {
+  const calculateAverageScore = (
+    criteria: Array<{ score: number }>,
+  ): number => {
+    if (criteria?.length === 0) return 0;
+    const totalScore = criteria?.reduce(
+      (sum, criterion) => sum + criterion.score,
+      0,
+    );
+    return Number((totalScore / criteria?.length).toFixed(1));
+  };
+
+  // Chart data
+  const score = calculateAverageScore(evalData?.data);
   const maxScore = 20;
   const percentage = (score / maxScore) * 100;
 
@@ -24,6 +44,11 @@ const OverallScore = () => {
     if (percentage > 70) return "#3CC28A";
     if (percentage >= 30) return "#F9C94E";
     return "#EB751F";
+  };
+  const getRemark = (percentage: number) => {
+    if (percentage > 70) return "Excellent";
+    if (percentage >= 30) return "Good";
+    return "Poor";
   };
 
   const chartData = [
@@ -40,16 +65,28 @@ const OverallScore = () => {
     },
   } satisfies ChartConfig;
 
+  // Date formatting
+  const date = new Date("2024-10-15T07:38:23.646Z");
+  const options: Intl.DateTimeFormatOptions = {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  };
+  const formattedDate = date.toLocaleDateString("en-GB", options);
+  
   return (
-    <Card className="flex w-full items-center justify-between py-3 mb-3.5 mt-3.5 lg:mt-0">
-      <CardHeader className="my-auto px-3 md:px-6 items-start py-0">
+    <Card className="mb-3.5 mt-3.5 flex w-full items-center justify-between py-3 lg:mt-0">
+      <CardHeader className="my-auto items-start px-3 py-0 md:px-6">
         <p className="text-sm font-semibold text-[#3D404B]">Overall Score</p>
         <CardTitle className="font-extrabold text-[#3D404B] lg:text-lg xl:text-xl 2xl:text-2xl">
-          Remark : <span className="text-[#3CC28A]">Excellent</span>
+          Remark :{" "}
+          <span style={{ color: getColor(percentage) }}>
+            {getRemark(percentage)}
+          </span>
         </CardTitle>
-        <CardDescription>Evaluated on 12 jul 2024</CardDescription>
+        <CardDescription>Evaluated on {formattedDate}</CardDescription>
       </CardHeader>
-      <CardContent className="pb-0 px-3 md:px-6">
+      <CardContent className="px-3 pb-0 md:px-6">
         <ChartContainer
           config={chartConfig}
           className="aspect-square h-[80px] w-[80px]"

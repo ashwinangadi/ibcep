@@ -21,11 +21,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { FileUp, Sparkles } from "lucide-react";
-import { toast } from "sonner";
-import { courseworkTypes, subjects } from "@/lib/constants";
+import { courseworkTypes, dummyCriteriaData, subjects } from "@/lib/constants";
 import { formSchema } from "@/lib/zod";
 import { MyCourseworkStore } from "@/store/my-coursework-store";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import { CriteriaData } from "@/lib/types";
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -80,8 +80,12 @@ const CourseworkForm = () => {
     },
   });
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     const preview = URL.createObjectURL(data.file);
+
+    const evaluationData = (dummyCriteriaData as CriteriaData)[
+      data.subject.toLowerCase()
+    ];
 
     const dataToStore = {
       id: uuidv4(),
@@ -93,11 +97,14 @@ const CourseworkForm = () => {
         data: base64String,
       },
       preview,
+      evaluationData: {
+        date: new Date().toISOString(),
+        data: evaluationData,
+      },
     };
 
     addMyCoursework(dataToStore);
     form.reset();
-    toast.success("Coursework successfully added.");
   };
 
   return (
@@ -138,8 +145,7 @@ const CourseworkForm = () => {
                           <p className="font-bold">Drag and drop a PDF</p>
                         )}
                         <p className="text-center text-xs">
-                          <span className="text-red-500">* </span>Limit 25MB per
-                          file.
+                          <span className="text-red-500">* </span>Limit 25MB per file.
                         </p>
                       </span>
                       <span className="cursor-pointer rounded-full border border-primary bg-transparent p-2 px-4 font-bold text-primary shadow-md hover:bg-primary/10 hover:text-accent-foreground">

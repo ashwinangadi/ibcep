@@ -16,6 +16,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useExpandPdfViewerStore } from "@/store/expand-pdfViewer-store";
 import Link from "next/link";
+import { criteriaData } from "@/lib/constants";
 
 const dummyFile = {
   id: "1",
@@ -29,6 +30,10 @@ const dummyFile = {
   subject: "Chemistry",
   essayTitle: "Ashwin_Angadi_Frontend_Engineer.pdf",
   preview: "/samplePDF.pdf",
+  evaluationData: {
+    date: "2024-10-15T07:38:23.646Z",
+    data: criteriaData,
+  },
 };
 
 const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
@@ -50,17 +55,16 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
     }
   })();
 
-  // If no file is found, we'll use this to show an error message
-  const noFileFound = !fileToUse;
-
   return (
     // <section className="container mx-auto mb-20 w-full px-3 md:max-w-[600px] lg:max-w-[807px] xl:max-w-[900px] 3xl:max-w-[1100px]">
     <section className="container mx-auto mb-20 w-full px-1 lg:px-3">
-      {noFileFound ? (
+      {!fileToUse ? (
         <div className="mt-[90px] text-center">
           <h2 className="text-2xl font-bold">File Not Found</h2>
-          <p>Sorry, we couldn&apos;t find the evaluation you&apos;re looking for.</p>
-          <Link href="/" className="text-blue-500 hover:underline ">
+          <p>
+            Sorry, we couldn&apos;t find the evaluation you&apos;re looking for.
+          </p>
+          <Link href="/" className="text-blue-500 hover:underline">
             Add Coursework!
           </Link>
         </div>
@@ -108,10 +112,10 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
                 </AccordionItem>
               </Accordion>
 
-              <OverallScore />
+              <OverallScore evalData={fileToUse?.evaluationData} />
 
               <span className="mt-5 hidden md:block lg:hidden">
-                <Criteria />
+                <Criteria evalData={fileToUse?.evaluationData.data} />
               </span>
               <span className="mt-5 flex flex-col gap-5 md:hidden">
                 <Button
@@ -130,7 +134,7 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
                     pdfName={fileToUse?.file.name || ""}
                   />
                 ) : (
-                  <Criteria />
+                  <Criteria evalData={fileToUse?.evaluationData.data} />
                 )}
               </span>
             </div>
@@ -158,9 +162,9 @@ const EvaluationPage = ({ params }: { params: { evaluation: string } }) => {
               } `}
             >
               <span className="hidden lg:block">
-                <OverallScore />
+                <OverallScore evalData={fileToUse?.evaluationData} />
               </span>
-              <Criteria />
+              <Criteria evalData={fileToUse?.evaluationData.data} />
             </div>
           </div>
         </>

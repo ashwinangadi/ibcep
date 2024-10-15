@@ -124,3 +124,182 @@ export const criteriaData = [
     ],
   },
 ];
+
+export const dummyCriteriaData = {
+  maths: [
+    {
+      id: "Criteria A",
+      title: "Mathematical Communication",
+      score: 9,
+      description: "Evaluates the effectiveness of mathematical communication in the coursework.",
+      strengths: [
+        "Clear and precise use of mathematical notation",
+        "Logical structure in presenting mathematical arguments"
+      ],
+      improvements: [
+        "Could provide more detailed explanations for complex mathematical concepts",
+        "Consider adding more real-world context to abstract mathematical ideas"
+      ]
+    },
+    {
+      id: "Criteria B",
+      title: "Problem-Solving Techniques",
+      score: 6,
+      description: "Assesses the application of problem-solving strategies and creativity in approach.",
+      strengths: [
+        "Demonstrates a variety of problem-solving techniques",
+        "Shows creativity in approaching complex problems"
+      ],
+      improvements: [
+        "Could explore alternative solutions more thoroughly",
+        "Consider discussing the efficiency of different methods used"
+      ]
+    },
+    {
+      id: "Criteria C",
+      title: "Use of Technology",
+      score: 8,
+      description: "Evaluates the appropriate and effective use of technology in mathematical exploration.",
+      strengths: [
+        "Skillful use of graphing calculators for visualization",
+        "Effective implementation of programming for complex calculations"
+      ],
+      improvements: [
+        "Could explore more advanced statistical software",
+        "Consider using technology to validate manual calculations"
+      ]
+    }
+  ],
+  physics: [
+    {
+      id: "Criteria A",
+      title: "Experimental Design",
+      score: 9,
+      description: "Assesses the quality and appropriateness of the experimental design.",
+      strengths: [
+        "Well-designed experiment with clear control of variables",
+        "Appropriate selection of measurement techniques"
+      ],
+      improvements: [
+        "Consider including more sophisticated error analysis",
+        "Explore alternative experimental methods to validate results"
+      ]
+    },
+    {
+      id: "Criteria B",
+      title: "Data Analysis and Interpretation",
+      score: 3,
+      description: "Evaluates the depth and accuracy of data analysis and interpretation.",
+      strengths: [
+        "Thorough analysis of collected data",
+        "Insightful interpretation of results in relation to physical theories"
+      ],
+      improvements: [
+        "Could incorporate more advanced statistical analysis",
+        "Consider discussing limitations of the experimental setup more critically"
+      ]
+    },
+    {
+      id: "Criteria C",
+      title: "Conceptual Understanding",
+      score: 5,
+      description: "Assesses the depth of understanding and application of physics concepts.",
+      strengths: [
+        "Demonstrates a strong grasp of fundamental physics principles",
+        "Effectively applies concepts to real-world scenarios"
+      ],
+      improvements: [
+        "Could explore more connections between different areas of physics",
+        "Consider discussing recent advancements related to the topic"
+      ]
+    }
+  ],
+  chemistry: [
+    {
+      id: "Criteria A",
+      title: "Laboratory Techniques",
+      score: 1,
+      description: "Evaluates the proficiency in carrying out chemical procedures and techniques.",
+      strengths: [
+        "Demonstrates skilled handling of laboratory equipment",
+        "Shows attention to safety procedures and precautions"
+      ],
+      improvements: [
+        "Could explore more advanced separation techniques",
+        "Consider discussing the principles behind each technique used"
+      ]
+    },
+    {
+      id: "Criteria B",
+      title: "Data Analysis and Evaluation",
+      score: 9,
+      description: "Assesses the quality of data analysis and critical evaluation of results.",
+      strengths: [
+        "Thorough analysis of chemical reactions and processes",
+        "Critical evaluation of results in relation to existing theories"
+      ],
+      improvements: [
+        "Could incorporate more sophisticated statistical analysis",
+        "Consider discussing potential sources of systematic error"
+      ]
+    },
+    {
+      id: "Criteria C",
+      title: "Conceptual Understanding and Application",
+      score: 6,
+      description: "Evaluates the depth of chemical knowledge and its application to the investigation.",
+      strengths: [
+        "Demonstrates a strong grasp of fundamental chemical concepts",
+        "Effectively applies theoretical knowledge to practical situations"
+      ],
+      improvements: [
+        "Could explore more connections between different areas of chemistry",
+        "Consider discussing recent research relevant to the topic"
+      ]
+    }
+  ],
+  biology: [
+    {
+      id: "Criteria A",
+      title: "Experimental Design and Methodology",
+      score: 2,
+      description: "Assesses the appropriateness and execution of biological investigation methods.",
+      strengths: [
+        "Well-designed experiment with appropriate controls",
+        "Effective use of biological techniques and equipment"
+      ],
+      improvements: [
+        "Could consider more variables in the experimental design",
+        "Explore alternative methodologies to strengthen findings"
+      ]
+    },
+    {
+      id: "Criteria B",
+      title: "Data Collection and Analysis",
+      score: 6,
+      description: "Evaluates the quality of data collection and depth of analysis in biological contexts.",
+      strengths: [
+        "Comprehensive data collection across multiple trials",
+        "Thoughtful analysis of biological patterns and trends"
+      ],
+      improvements: [
+        "Could incorporate more advanced statistical tests",
+        "Consider discussing biological significance of the results more deeply"
+      ]
+    },
+    {
+      id: "Criteria C",
+      title: "Conceptual Understanding and Application",
+      score: 10,
+      description: "Assesses the comprehension and application of core biological principles.",
+      strengths: [
+        "Demonstrates a strong understanding of biological systems",
+        "Effectively applies biological concepts to real-world scenarios"
+      ],
+      improvements: [
+        "Could explore more connections between different levels of biological organization",
+        "Consider discussing recent advancements in the field related to the topic"
+      ]
+    }
+  ],
+};
