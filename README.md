@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# International Baccalaureate (IB) Coursework Evaluation Platform
 
-## Getting Started
+This is a web application for evaluating International Baccalaureate (IB) coursework. The application allows users to upload and store coursework files, fill in coursework details, view evaluations, and explore different coursework categories.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Live Application]([<insert-live-url-here>](https://ib-coursework-evaluation-platform-three.vercel.app/))
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 14**: For building the full-stack application with app router and server components.
+- **TailwindCSS**: For responsive, utility-first styling.
+- **Zustand**: For global state management.
+- **Shadcn UI**: For using a component library to ensure design consistency.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+### 1. File Upload
+- Drag-and-drop functionality for PDF files.
+- Manual file upload option.
+- File size limit display (e.g., "Limit 25 MB per file").
+- Files and metadata stored locally using browser local storage.
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Local Storage Implementation
+- Uploaded files and their metadata are saved in local storage.
+- Data persists across page reloads.
+- Efficient retrieval of stored files and associated data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Coursework Details Form
+- Dropdowns for "Coursework Type" and "Subject."
+- Text input for essay title.
+- Data is stored locally with the associated file.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Evaluation Display
+- Dummy data for score evaluations.
+- Circular progress indicator for the overall score.
+- Score breakdown by criteria (A, B, C) and evaluation date.
+- All data stored and retrieved from local storage.
 
-## Deploy on Vercel
+### 5. Coursework List
+- Display previously uploaded coursework with relevant details (title, subject, word count, etc.).
+- Retrieved from local storage.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 6. Explore Coursework Section
+- Tabbed interface for different coursework categories.
+- Grid layout for displaying coursework examples.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Bonus Features
+
+### 1. Animations
+- Smooth transitions and animations between different states.
+- Micro-interactions for enhanced user feedback.
+- Congratulatory messages for good scores, and encouraging feedback for improvement areas.
+
+### 2. User Gratification
+- Congratulatory messages for good scores
+- Encouraging feedback for areas of improvement
+
+### 3. Accessibility
+- Proper use of ARIA attributes.
+- Full keyboard navigation support.
+
+### 4. Advanced Local Storage Features
+- Option to clear local storage or delete individual files.
+- Real API integration to simulate server-side persistence.
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ashwinangadi/ibcep.git
+   cd ibcep
+   ```
+2. Install dependencies:   
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4.	Build for production:
+    ```bash
+    npm run build
+    ```
+    
+You can start editing the page by modifying `app/page.tsx`.
+
+## Assumptions & Design Decisions
+- The user interface was designed to closely match the Figma design with enhancements for animations and accessibility.
+
+## Challenges Faced
+-	Handling storage limitations and providing appropriate feedback to the user.
+-	Choosing a suitable PDF viewer for the project
+-	Ensure persistence of data across page reloads
+
