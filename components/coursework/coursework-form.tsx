@@ -268,7 +268,7 @@ const CourseworkForm = () => {
 
             <Button
               type="submit"
-              className={`mt-6 w-2/4 rounded-full px-1 pe-8 text-base font-bold text-white ${
+              className={`mt-6 rounded-full px-1 pe-8 text-base font-bold text-white ${
                 !form.formState.isValid || form.formState.isSubmitting
                   ? "bg-[#ADB8C9] hover:bg-[#ADB8C9]"
                   : "bg-primary"

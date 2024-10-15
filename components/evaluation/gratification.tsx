@@ -23,7 +23,7 @@ const Gratification = ({
         if (!isHovering) {
           setIsVisible(false);
         }
-      }, 30000);
+      }, 4000);
     };
 
     const timer = startTimer();
