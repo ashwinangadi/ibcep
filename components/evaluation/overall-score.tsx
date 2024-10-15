@@ -40,7 +40,7 @@ const OverallScore = ({
   // Chart data
   const score = calculateAverageScore(evalData?.data);
   const maxScore = 10;
-  const percentage = (maxScore / score) * 100;
+  const percentage = (score * 100) / maxScore;
 
   const getColor = (percentage: number) => {
     if (percentage > 70) return "#3CC28A";

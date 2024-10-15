@@ -85,6 +85,9 @@ const CourseworkForm = () => {
   const onSubmit = async (data: FormValues) => {
     const preview = URL.createObjectURL(data.file);
     try {
+      toast.info("Evaluating your score...", {
+        description: "This may take a while...",
+      });
       const response = await axios.post("/api/evaluation", {
         subject: data.subject.toLowerCase(),
       });
@@ -107,7 +110,7 @@ const CourseworkForm = () => {
 
       addMyCoursework(dataToStore);
       form.reset();
-    } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {// eslint-disable-line @typescript-eslint/no-explicit-any
       console.error("Error fetching evaluation data:", error);
       toast.error("Error fetching evaluation data", {
         description: error.message,
