@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { FileUp, Sparkles } from "lucide-react";
-import { courseworkTypes, dummyCriteriaData, subjects } from "@/lib/constants";
+import { courseworkTypes, subjects } from "@/lib/constants";
 import { formSchema } from "@/lib/zod";
 import { MyCourseworkStore } from "@/store/my-coursework-store";
 import { v4 as uuidv4 } from "uuid";
@@ -107,7 +107,7 @@ const CourseworkForm = () => {
 
       addMyCoursework(dataToStore);
       form.reset();
-    } catch (error: any) {
+    } catch (error: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
       console.error("Error fetching evaluation data:", error);
       toast.error("Error fetching evaluation data", {
         description: error.message,
