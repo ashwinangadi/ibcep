@@ -26,7 +26,7 @@ const Gratification = ({
       }, 30000);
     };
 
-    let timer = startTimer();
+    const timer = startTimer();
 
     return () => clearTimeout(timer);
   }, [isHovering]);
@@ -75,13 +75,13 @@ const Gratification = ({
           </h2>
         </CardHeader>
         <CardContent>
-          <CardDescription className="text-gray-600 text-sm font-medium text-center">
+          <CardDescription className="text-center text-sm font-medium text-gray-600">
             {percentage > 70 ? (
-              <p>Congratulations! You're doing great!</p>
+              <p>Congratulations! You&apos;re doing great!</p>
             ) : percentage >= 30 ? (
               <p>Good job! Keep improving to reach excellence!</p>
             ) : (
-              <p>You've got room for improvement. Keep working hard!</p>
+              <p>You&apos;ve got room for improvement. Keep working hard!</p>
             )}
           </CardDescription>
         </CardContent>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   Label,
   PolarGrid,
@@ -16,9 +16,6 @@ import {
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 import { SubjectCriteria } from "@/lib/types";
 import confetti from "canvas-confetti";
-import { toast } from "sonner";
-import { Button } from "@react-pdf-viewer/core";
-import { X } from "lucide-react";
 import Gratification from "./gratification";
 
 const OverallScore = ({
