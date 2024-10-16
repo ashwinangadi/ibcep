@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -19,9 +19,11 @@ import { Separator } from "@radix-ui/react-separator";
 import CriteriaChart from "./criteria-chart";
 import { Button } from "@/components/ui/button";
 import { SubjectCriteria } from "@/lib/types";
+import { useExpandPdfViewerStore } from "@/store/expand-pdfViewer-store";
 
 export default function Criteria({ evalData }: { evalData: SubjectCriteria }) {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const { isExpanded } = useExpandPdfViewerStore();
 
   const toggleItem = (itemId: string) => {
     setExpandedItems((prev) =>
@@ -30,6 +32,18 @@ export default function Criteria({ evalData }: { evalData: SubjectCriteria }) {
         : [...prev, itemId],
     );
   };
+
+  useEffect(() => {
+    if (isExpanded) {
+      setExpandedItems((prev) =>
+        prev.includes("Criteria A") ? prev : [...prev, "Criteria A"],
+      );
+    } else if (!isExpanded) {
+      setExpandedItems((prev) => prev.filter((id) => id !== "Criteria A"));
+    }
+  }, [isExpanded]);
+
+  console.log(expandedItems);
 
   return (
     <div className="mx-auto w-full">
