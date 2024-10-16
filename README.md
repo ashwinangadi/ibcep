@@ -110,6 +110,6 @@ You can start editing the page by modifying `app/page.tsx`.
 ## Challenges Faced
 
 - Choosing a suitable PDF viewer for the project
-- Ensured persistence of data across page reloads by serializing the data and storing it as string in local storage.
+- Implemented data persistence across page reloads using Zustand’s persist middleware by serializing state and storing it in local storage, ensuring seamless user experience and continuity.
 
 Contact me at [Ashwin Angadi](https://www.ashwinangadi.com/) for any queries.
