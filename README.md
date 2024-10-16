@@ -12,6 +12,7 @@ This is a web application for evaluating International Baccalaureate (IB) course
 - **TailwindCSS**: For responsive, utility-first styling.
 - **Zustand**: For global state management.
 - **Shadcn UI**: For using a component library to ensure design consistency.
+- **Zod**: For schema validation.
 
 ## Key Features
 
@@ -62,7 +63,7 @@ This is a web application for evaluating International Baccalaureate (IB) course
 
 ### 4. Advanced Local Storage Features
 - Option to clear local storage or delete individual files.
-- Real API integration to simulate server-side persistence.
+- Real API integration for server-side persistence.
 
 ## Setup Instructions
 
@@ -83,14 +84,18 @@ This is a web application for evaluating International Baccalaureate (IB) course
     ```bash
     npm run build
     ```
-    
+3. Run the Production build:
+   ```bash
+   npm run start
+   ```
+
 You can start editing the page by modifying `app/page.tsx`.
 
 ## Assumptions & Design Decisions
 - The user interface was designed to closely match the Figma design with enhancements for animations and accessibility.
+- The project is architected to be scalable and modular, with a focus on reusability and maintainability.
 
 ## Challenges Faced
--	Handling storage limitations and providing appropriate feedback to the user.
 -	Choosing a suitable PDF viewer for the project
 -	Ensured persistence of data across page reloads by serializing the data and storing it as string in local storage.
 
