@@ -39,14 +39,14 @@ export default function Criteria({ evalData }: { evalData: SubjectCriteria }) {
         prev.includes("Criteria A") ? prev : [...prev, "Criteria A"],
       );
     } else if (!isExpanded) {
-      setExpandedItems((prev) => prev.filter((id) => id !== "Criteria A"));
+      setExpandedItems([]);
     }
   }, [isExpanded]);
 
   console.log(expandedItems);
 
   return (
-    <div className="mx-auto w-full">
+    <div className="mx-auto w-full overflow-x-auto">
       <Accordion
         className="space-y-2"
         type="multiple"
